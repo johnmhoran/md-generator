@@ -1,4 +1,4 @@
-# About this Specification
+# About this Specification!
 
 The document at [https://tc54.org/ecmaXXX/](https://tc54.org/ecmaXXX/) is the most accurate and up-to-date Package-URL specification.
 
@@ -20,4 +20,3 @@ This specification is developed on GitHub with the help of the Package-URL commu
   * Chat: [Slack Channel](https://cyclonedx.slack.com/archives/C06KTE3BWEB)
 
 Refer to the [colophon](https://ecma-tc54.github.io/ECMA-xxx-PURL/#sec-colophon) for more information on how this document was created.
-
