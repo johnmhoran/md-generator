@@ -30,46 +30,46 @@ def main():
     # ===========================================================
 
     purl_specification_input = [
-        "docs-md-2025-08-21/standard/header.md",
-        "docs-md-2025-08-21/purl-spec-toc.md",
-        "docs-md-2025-08-21/standard/specification-summary.md",
-        "docs-md-2025-08-21/examples.md",
-        "docs-md-2025-08-21/standard/components.md",
-        "docs-md-2025-08-21/standard/characters-and-encoding.md",
-        "docs-md-2025-08-21/how-to-build.md",
-        "docs-md-2025-08-21/how-to-parse.md",
-        "docs-md-2025-08-21/known-qualifiers.md",
-        "docs-md-2025-08-21/tests.md",
+        "docs/standard/header.md",
+        "docs/purl-spec-toc.md",
+        "docs/standard/specification-summary.md",
+        "docs/examples.md",
+        "docs/standard/components.md",
+        "docs/standard/characters-and-encoding.md",
+        "docs/how-to-build.md",
+        "docs/how-to-parse.md",
+        "docs/known-qualifiers.md",
+        "docs/tests.md",
     ]
 
     purl_standard_input = [
-        "docs-md-2025-08-21/standard/header.md",
-        "docs-md-2025-08-21/standard/about.md",
-        "docs-md-2025-08-21/standard/introduction.md",
-        "docs-md-2025-08-21/standard/conformance.md",
-        "docs-md-2025-08-21/standard/references.md",
-        "docs-md-2025-08-21/standard/overview.md",
-        "docs-md-2025-08-21/standard/summary.md",
-        "docs-md-2025-08-21/standard/characters-and-encoding.md",
-        "docs-md-2025-08-21/standard/components.md",
-        "docs-md-2025-08-21/standard/types.md",
-        "docs-md-2025-08-21/standard/annex-a.md",
+        "docs/standard/header.md",
+        "docs/standard/about.md",
+        "docs/standard/introduction.md",
+        "docs/standard/conformance.md",
+        "docs/standard/references.md",
+        "docs/standard/overview.md",
+        "docs/standard/summary.md",
+        "docs/standard/characters-and-encoding.md",
+        "docs/standard/components.md",
+        "docs/standard/types.md",
+        "docs/standard/annex-a.md",
     ]
 
     heading_modifications = {
-        "docs-md-2025-08-21/standard/summary.md": {
+        "docs/standard/summary.md": {
             "## What is a `purl`?": "# 5 Package-URL Specification",
         },
-        "docs-md-2025-08-21/standard/characters-and-encoding.md": {
+        "docs/standard/characters-and-encoding.md": {
             "## Permitted characters": "## 5.1 Permitted Characters",
             "## Separators": "## 5.2 Separator Characters",
             "## Character encoding": "## 5.3 Character Encoding",
             "## Case folding": "## 5.4 Case Folding",
         },
-        "docs-md-2025-08-21/standard/components.md": {
+        "docs/standard/components.md": {
             "## Rules for each `purl` component": "## 5.5 Component-level Rules"
         },
-        "docs-md-2025-08-21/standard/types.md": {
+        "docs/standard/types.md": {
             "## Package-URL Type definitions": "## 5.6 PURL Types"
         },
     }
@@ -80,7 +80,17 @@ def main():
     # input_list = purl_specification_input
     input_list = purl_standard_input
 
+    # # input_list = [os.path.join("docs", filename) for filename in purl_standard_input]
+    # input_path = [os.path.join("docs", filename) for filename in input_list]
+
+    # heading_list = [os.path.join("docs", filename) for filename in heading_modifications]
+
+    # print(f"\ninput_list: {input_list}\n")
+    # print(f"\nheading_list: {heading_list}\n")
+
     for filename in input_list:
+    # for filename in input_path:
+        print(f"\nfilename: {filename}\n")
         path = Path(filename)
 
         if not path.exists():
@@ -90,14 +100,16 @@ def main():
 
         # Check if this file needs heading modifications
         if input_list == purl_standard_input and filename in heading_modifications:
-            content = modify_headings(content, heading_modifications[filename])
-            print(f"Applied heading modifications to: {filename}")
 
+        # if input_list == purl_standard_input and filename in heading_list:
+        # if input_list == os.path.join("docs", purl_standard_input) and filename in heading_list:
+        # os.path.join("docs", filename)
+            content = modify_headings(content, heading_modifications[filename])
+            # content = modify_headings(content, heading_list[filename])
+            print(f"Applied heading modifications to: {filename}")
         combined_parts.append(content)
 
     combined_md = "\n\n".join(combined_parts)
-
-    # output_dir = Path("../output-md-2025-08-20-01")
     output_dir = Path("output-md-2025-08-21")
     output_dir.mkdir(parents=True, exist_ok=True)
 
