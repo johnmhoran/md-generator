@@ -6,7 +6,7 @@ It will be overwritten in future updates.*
 applied to the files located in purl-spec/docs.*
 &#10;-->
 
-# About this Specification
+# About this Specification!!
 
 The document at <https://tc54.org/ecmaXXX/> is the most accurate and
 up-to-date Package-URL specification.
