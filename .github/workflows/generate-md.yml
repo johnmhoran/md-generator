@@ -1,6 +1,12 @@
 name: Generate Combined Markdown
 
 # 2025-08-22 Friday 18:02:50.  JMH test numero uno.  2025-08-22 Friday 18:15:03.  Signed into GH.
+# 2025-08-22 Friday 19:14:11.  Permissions failure -- added permissions section.
+
+# Set permissions for the workflow
+permissions:
+  contents: write  # Allow workflow to push commits back
+
 # Trigger when files are pushed to the docs folder
 on:
   push:
