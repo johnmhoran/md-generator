@@ -29,13 +29,29 @@ def main():
     print("===================\n")
     # ===========================================================
 
+    # purl_specification_input = [
+    #     "docs/standard/header.md",
+    #     "docs/purl-spec-toc.md",
+    #     # 2025-09-05 Friday 16:30:47.  This threw an error with 'make run' -- could not find the file.  Check the latest mapping file/issue.
+    #     "docs/standard/specification-summary.md",
+    #     "docs/examples.md",
+    #     "docs/standard/components.md",
+    #     "docs/standard/characters-and-encoding.md",
+    #     "docs/how-to-build.md",
+    #     "docs/how-to-parse.md",
+    #     "docs/known-qualifiers.md",
+    #     "docs/tests.md",
+    # ]
+
+    # 2025-09-05 Friday 18:26:28.  Updated with Michael.
     purl_specification_input = [
         "docs/standard/header.md",
-        "docs/purl-spec-toc.md",
-        "docs/standard/specification-summary.md",
-        "docs/examples.md",
+        "docs/standard/introduction.md",
+        "docs/standard/summary.md",
         "docs/standard/components.md",
         "docs/standard/characters-and-encoding.md",
+        "docs/standard/types.md",
+        "docs/maintain-purl-types.md",
         "docs/how-to-build.md",
         "docs/how-to-parse.md",
         "docs/known-qualifiers.md",
@@ -53,6 +69,9 @@ def main():
         "docs/standard/characters-and-encoding.md",
         "docs/standard/components.md",
         "docs/standard/types.md",
+        # [add Michael's 2 new files here, def first, index last]
+        "docs/standard/purl-type-definition.schema.md",
+        "docs/standard/purl-types-index.schema.md",
         "docs/standard/annex-a.md",
     ]
 
@@ -76,9 +95,9 @@ def main():
 
     combined_parts = []
 
-    # Choose which output.md we want:
-    # input_list = purl_specification_input
-    input_list = purl_standard_input
+    # ZZZ  Choose which output.md we want:
+    input_list = purl_specification_input
+    # input_list = purl_standard_input
 
     # # input_list = [os.path.join("docs", filename) for filename in purl_standard_input]
     # input_path = [os.path.join("docs", filename) for filename in input_list]
@@ -110,7 +129,15 @@ def main():
         combined_parts.append(content)
 
     combined_md = "\n\n".join(combined_parts)
-    output_dir = Path("output-md-2025-08-21")
+
+    # ZZZ Identify the output folder.
+    # output_dir = Path("output-md-2025-08-21")
+    # output_dir = Path("output-md-2025-09-03")
+    # output_dir = Path("output-md-2025-09-03-01")
+    # output_dir = Path("output-md-2025-09-03-02")
+    # output_dir = Path("output-md-2025-09-03-03")
+    output_dir = Path("output-md-2025-09-05-01")
+
     output_dir.mkdir(parents=True, exist_ok=True)
 
     if input_list == purl_specification_input:
